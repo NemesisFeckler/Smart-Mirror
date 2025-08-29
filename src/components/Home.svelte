@@ -1,8 +1,9 @@
 <script>
   import { time, formatTime, formatDateLong } from '../lib/time.js';
+  import { push as goto } from 'svelte-spa-router';
 </script>
 
-<div class="container">
+<div class="container" on:click={() => goto('/dashboard')}>
   <h1 class="date">{formatDateLong($time.now)}</h1>
   <h2 class="clock">{formatTime($time.now)}</h2>
 </div>

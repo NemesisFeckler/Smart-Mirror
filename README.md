@@ -23,4 +23,10 @@ npm run preview
 - `/` – Home screen showing centered date and time.
 - `/dashboard` – Dashboard with date top-center, time top-right, and Daily/Weekly/Monthly sections.
 
-Time and date update every second via a Svelte store. Real navigation will be added later.
+## Navigation
+
+- Clicking anywhere on the Home screen takes you to the dashboard.
+- The dashboard monitors mouse movement and clicks; after two minutes of inactivity it automatically returns to the home screen.
+- Any activity resets the timer.
+
+Time and date update every second via a Svelte store.

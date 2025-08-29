@@ -1,5 +1,19 @@
 <script>
   import { time, formatTime, formatDateLong } from '../lib/time.js';
+  import { onMount, onDestroy } from 'svelte';
+  import { push as goto } from 'svelte-spa-router';
+  import { trackInactivity, INACTIVITY_LIMIT_MS } from '../lib/navigation.js';
+
+  let tracker;
+
+  onMount(() => {
+    tracker = trackInactivity(() => goto('/'), INACTIVITY_LIMIT_MS);
+    tracker.start();
+  });
+
+  onDestroy(() => {
+    tracker.stop();
+  });
 </script>
 
 <div class="dashboard">
